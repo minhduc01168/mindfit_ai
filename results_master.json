@@ -1,0 +1,144 @@
+{
+  "dataset": {
+    "total_subjects": 15,
+    "train_subjects": [
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S10",
+      "S11"
+    ],
+    "val_subjects": [
+      "S9",
+      "S13",
+      "S14"
+    ],
+    "test_subjects": [
+      "S15",
+      "S16",
+      "S17"
+    ],
+    "train_windows": 3139,
+    "val_windows": 880,
+    "test_windows": 785
+  },
+  "training": {
+    "best_epoch": 23,
+    "best_val_macro_f1": 0.8962,
+    "best_val_accuracy": 0.894,
+    "val_loss_epoch_5": 0.186,
+    "val_loss_epoch_23": 0.2121,
+    "early_stopping_epoch": 33,
+    "patience": 10,
+    "initial_train_loss": 0.4693
+  },
+  "test_3class": {
+    "total_samples": 785,
+    "correct_samples": 500,
+    "overall_accuracy": 0.6369,
+    "macro_f1": 0.575,
+    "normal": {
+      "precision": 0.8033,
+      "recall": 0.8305,
+      "f1": 0.8167,
+      "support": 354
+    },
+    "amusement": {
+      "precision": 0.53,
+      "recall": 0.2398,
+      "f1": 0.3302,
+      "support": 221
+    },
+    "high_stress": {
+      "precision": 0.4796,
+      "recall": 0.7286,
+      "f1": 0.5784,
+      "support": 210
+    }
+  },
+  "test_binary": {
+    "accuracy": 0.7159,
+    "macro_f1": 0.6821,
+    "non_stress_precision": 0.8777,
+    "non_stress_recall": 0.7113,
+    "non_stress_f1": 0.7858,
+    "stress_precision": 0.4796,
+    "stress_recall": 0.7286,
+    "stress_f1": 0.5784
+  },
+  "roc_auc": {
+    "normal_auc": 0.903,
+    "amusement_auc": 0.69,
+    "high_stress_auc": 0.807,
+    "macro_auc": 0.8
+  },
+  "per_subject": {
+    "S15": {
+      "acc_3class": 0.706,
+      "macro_f1": 0.642,
+      "stress_recall": 0.785
+    },
+    "S16": {
+      "acc_3class": 0.679,
+      "macro_f1": 0.615,
+      "stress_recall": 0.76
+    },
+    "S17": {
+      "acc_3class": 0.526,
+      "macro_f1": 0.453,
+      "stress_recall": 0.643
+    }
+  },
+  "ablation": {
+    "waveform_only": {
+      "acc_3class": 0.582,
+      "macro_f1": 0.51,
+      "acc_binary": 0.674
+    },
+    "biomarker_only": {
+      "acc_3class": 0.604,
+      "macro_f1": 0.531,
+      "acc_binary": 0.691
+    },
+    "dual_branch_fusion": {
+      "acc_3class": 0.637,
+      "macro_f1": 0.575,
+      "acc_binary": 0.716
+    }
+  },
+  "surrogate_rf": {
+    "fidelity": 0.912,
+    "n_estimators": 100,
+    "max_depth": 5,
+    "features_rank": [
+      {
+        "feature": "EDA_Tonic_Mean",
+        "mean_abs_shap": 0.1595
+      },
+      {
+        "feature": "HRV_RMSSD",
+        "mean_abs_shap": 0.0947
+      },
+      {
+        "feature": "BVP_Pulse_Amp",
+        "mean_abs_shap": 0.0919
+      },
+      {
+        "feature": "Heart_Rate_BPM",
+        "mean_abs_shap": 0.0446
+      },
+      {
+        "feature": "EDA_Max_Slope",
+        "mean_abs_shap": 0.0134
+      },
+      {
+        "feature": "EDA_Phasic_Std",
+        "mean_abs_shap": 0.0041
+      }
+    ]
+  }
+}

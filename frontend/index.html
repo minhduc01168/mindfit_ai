@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindFit AI – Nhận Diện Mức Độ Lo Âu & Gợi Ý Bài Tập Cá Nhân Hóa</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Chart.js CDN for High-Performance Bio-Visualizations -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body class="light-theme">
+  <!-- Glowing Background Orbs -->
+  <div class="glow-orb orb-1"></div>
+  <div class="glow-orb orb-2"></div>
+  <div class="glow-orb orb-3"></div>
+
+  <!-- Header / Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="logo-group">
+        <div class="logo-icon-box">
+          <i data-lucide="activity" class="pulse-icon"></i>
+        </div>
+        <div class="logo-text">
+          <h1>MindFit <span class="gradient-text">AI</span></h1>
+          <p class="tagline">Wearable Neuro-Physiological AI & Sports Medicine</p>
+        </div>
+      </div>
+      
+      <div class="nav-badges">
+        <div class="status-pill" id="backendStatusPill">
+          <span class="status-dot"></span>
+          <span id="backendStatusText">Đang kết nối AI Engine...</span>
+        </div>
+        <div class="tech-pill">
+          <i data-lucide="cpu" class="tech-icon"></i>
+          <span>PyTorch SE-ResNet1D</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-container">
+    <!-- Hero Banner / Abstract Intro -->
+    <section class="hero-section">
+      <div class="hero-badge">Closed-Loop Deep Learning & XAI</div>
+      <h2 class="hero-title">Hệ Thống Nhận Diện Mức Độ Lo Âu & Cá Nhân Hóa Lộ Trình Phục Hồi</h2>
+      <p class="hero-desc">
+        Kết hợp mạng tích chập <strong>1D-CNN (SE-ResNet1D)</strong> trên dữ liệu chuỗi thời gian y sinh (BVP, HRV, EDA) từ thiết bị đeo 
+        với thuật toán gợi ý bài tập y học thể thao và cơ chế giải thích <strong>SHAP Values (Explainable AI)</strong> nhằm kiểm soát hormone Cortisol.
+      </p>
+    </section>
+
+    <!-- Dual-Input Space -->
+    <section class="input-card glass-panel">
+      <div class="tab-header">
+        <button class="tab-btn active" id="tabUploadBtn" onclick="switchInputTab('upload')">
+          <i data-lucide="upload-cloud"></i>
+          <span>Tải File Thiết Bị Đeo (.CSV)</span>
+        </button>
+        <button class="tab-btn" id="tabManualBtn" onclick="switchInputTab('manual')">
+          <i data-lucide="clipboard-pen"></i>
+          <span>Nhập Chỉ Số Sinh Học & Thang Đo GAD-7</span>
+        </button>
+      </div>
+
+      <!-- Tab 1: CSV Upload Space -->
+      <div class="tab-content" id="tabUploadContent">
+        <div class="upload-dropzone" id="dropzone" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
+          <input type="file" id="csvFileInput" accept=".csv" style="display:none;" onchange="handleFileSelect(event)">
+          <div class="upload-icon-circle">
+            <i data-lucide="file-spreadsheet"></i>
+          </div>
+          <h3>Kéo & thả file CSV thiết bị đeo (Apple Watch, Fitbit, Empatica)</h3>
+          <p class="upload-subtext">Hỗ trợ chuỗi tín hiệu thời gian BVP, Heart Rate, HRV và EDA (Skin Conductance)</p>
+          <button class="btn btn-secondary" onclick="document.getElementById('csvFileInput').click()">
+            <i data-lucide="folder-open"></i> Chọn file từ máy tính
+          </button>
+          <div class="selected-file-info" id="selectedFileInfo" style="display:none;">
+            <i data-lucide="check-circle-2" class="success-icon"></i>
+            <span id="fileNameLabel">sample_data.csv</span>
+          </div>
+        </div>
+
+        <!-- 1-Click Demo Profiles (Presentation Helper) -->
+        <div class="presets-section">
+          <div class="presets-header">
+            <i data-lucide="sparkles"></i>
+            <span>Hoặc chọn nhanh Hồ sơ Thử nghiệm 1-Click (Dành cho Thuyết trình):</span>
+          </div>
+          <div class="presets-grid">
+            <button class="preset-card preset-normal" onclick="loadSamplePreset('normal')">
+              <div class="preset-indicator"></div>
+              <div class="preset-info">
+                <strong>🟢 Thể Trạng Bình Thường (Normal)</strong>
+                <small>Apple Watch: HR 64 bpm, HRV dồi dào, EDA thấp ổn định</small>
+              </div>
+            </button>
+            <button class="preset-card preset-mild" onclick="loadSamplePreset('mild')">
+              <div class="preset-indicator"></div>
+              <div class="preset-info">
+                <strong>🟡 Lo Âu Nhẹ (Mild Anxiety)</strong>
+                <small>Fitbit: HR 85 bpm, dao động nhẹ, nhạy cảm thần kinh</small>
+              </div>
+            </button>
+            <button class="preset-card preset-stress" onclick="loadSamplePreset('stress')">
+              <div class="preset-indicator"></div>
+              <div class="preset-info">
+                <strong>🟣 Căng Thẳng Cao (High Stress)</strong>
+                <small>Empatica E4: HR 108 bpm, EDA bùng nổ, Cortisol tăng vọt</small>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2: Manual Vitals & GAD-7 Scale -->
+      <div class="tab-content" id="tabManualContent" style="display:none;">
+        <div class="manual-form-grid">
+          <!-- Left: Vitals Sliders -->
+          <div class="form-sub-card">
+            <h4 class="form-sub-title"><i data-lucide="heart-pulse"></i> Chỉ Số Sinh Học Tức Thời</h4>
+            
+            <div class="slider-group">
+              <div class="slider-header">
+                <label>Nhịp Tim Nghỉ Hiện Tại (Resting HR):</label>
+                <span class="slider-val" id="valRestingHR">75 bpm</span>
+              </div>
+              <input type="range" id="inputRestingHR" min="50" max="140" value="75" oninput="updateSliderVal('RestingHR', ' bpm')">
+              <div class="slider-scale"><span>50 (Lý tưởng)</span><span>80</span><span>140 (Căng thẳng)</span></div>
+            </div>
+
+            <div class="slider-group">
+              <div class="slider-header">
+                <label>Thời Lượng Giấc Ngủ Đêm Qua:</label>
+                <span class="slider-val" id="valSleepHours">7.0 giờ</span>
+              </div>
+              <input type="range" id="inputSleepHours" min="3.0" max="10.0" step="0.5" value="7.0" oninput="updateSliderVal('SleepHours', ' giờ')">
+              <div class="slider-scale"><span>3h (Thiếu ngủ nặng)</span><span>7.5h (Chuẩn)</span><span>10h</span></div>
+            </div>
+
+            <div class="slider-group">
+              <div class="slider-header">
+                <label>Mức Độ Căng Thẳng Tự Đánh Giá (1 - 10):</label>
+                <span class="slider-val" id="valStressFeel">5/10</span>
+              </div>
+              <input type="range" id="inputStressFeel" min="1" max="10" value="5" oninput="updateSliderVal('StressFeel', '/10')">
+              <div class="slider-scale"><span>1 (Thư thái)</span><span>5</span><span>10 (Quá tải)</span></div>
+            </div>
+          </div>
+
+          <!-- Right: GAD-7 Standard Scale -->
+          <div class="form-sub-card">
+            <h4 class="form-sub-title"><i data-lucide="clipboard-check"></i> Thang Đo Lo Âu Lâm Sàng GAD-7 (2 tuần qua)</h4>
+            <p class="gad7-guide">Chọn mức độ bạn cảm thấy trong 2 tuần gần nhất: <em>0 (Không hề) | 1 (Vài ngày) | 2 (Hơn một nửa) | 3 (Gần như mỗi ngày)</em></p>
+            
+            <div class="gad7-questions-list" id="gad7QuestionsList">
+              <!-- Dynamically populated via JS -->
+            </div>
+            <div class="gad7-score-summary">
+              <span>Tổng điểm GAD-7 ước tính: <strong id="gad7TotalScore">0</strong>/21</span>
+              <span id="gad7SeverityTag" class="gad7-tag">Bình thường</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Button -->
+      <div class="action-footer">
+        <button class="btn btn-primary btn-glow" id="analyzeBtn" onclick="runAnalysis()">
+          <i data-lucide="cpu"></i>
+          <span>KÍCH HOẠT PHÂN TÍCH THỂ TRẠNG VÀ TẠO LỘ TRÌNH</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Loading State Skeleton -->
+    <div class="loading-container glass-panel" id="loadingState" style="display:none;">
+      <div class="pulse-loader"></div>
+      <h3 id="loadingText">Đang lọc nhiễu tín hiệu Butterworth (0.5 - 4.0 Hz)...</h3>
+      <p class="loading-subtext">Mạng SE-ResNet1D đang thực hiện trích xuất đặc trưng đa thang đo trên CPU</p>
+    </div>
+
+    <!-- Results Section (Initially Hidden) -->
+    <section class="results-container" id="resultsSection" style="display:none;">
+      
+      <!-- State Classification Banner -->
+      <div class="state-banner glass-panel" id="stateBanner">
+        <div class="state-icon-large" id="stateIcon">🌿</div>
+        <div class="state-meta">
+          <div class="state-badge-row">
+            <span class="state-badge" id="stateBadgeTitle">NORMAL</span>
+            <span class="confidence-pill" id="confidencePill">Độ tự tin: 92.4%</span>
+            <span class="model-pill" id="modelSourcePill">PyTorch SE-ResNet1D</span>
+          </div>
+          <h3 class="state-heading" id="stateHeading">Trạng Thái Thể Trạng: Thư Thái & Ổn Định</h3>
+          <p class="state-description" id="stateDesc">
+            Chỉ số biến thiên nhịp tim (HRV) cao và trương lực điện trở da (EDA) thấp cho thấy hệ thần kinh đối giao cảm (PNS) đang chiếm ưu thế. Cơ thể sẵn sàng cho các bài tập rèn sức bền và phát triển thể chất.
+          </p>
+        </div>
+        <div class="severity-meter-card">
+          <span class="severity-label">Chỉ số Căng thẳng (0 - 100)</span>
+          <div class="severity-number" id="severityScore">18</div>
+          <div class="meter-bar-bg">
+            <div class="meter-bar-fill" id="meterBarFill" style="width: 18%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Signal Waveform Visualizer -->
+      <div class="chart-card glass-panel">
+        <div class="chart-card-header">
+          <div class="chart-title-group">
+            <i data-lucide="waveform" class="section-icon"></i>
+            <div>
+              <h3>Trực Quan Hóa Tín Hiệu Y Sinh Liên Tục (Bio-Signal Stream)</h3>
+              <p>Biểu diễn chuỗi thời gian BVP (Heart Pulse) và EDA qua bộ lọc số Butterworth 4Hz</p>
+            </div>
+          </div>
+          <div class="wave-legend">
+            <span class="legend-item"><span class="dot dot-bvp"></span> BVP Pulse (Nhịp tim)</span>
+            <span class="legend-item"><span class="dot dot-eda"></span> EDA (Điện trở da)</span>
+          </div>
+        </div>
+        <div class="canvas-wrapper">
+          <canvas id="waveformChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Explainable AI (SHAP Waterfall) Section -->
+      <div class="chart-card glass-panel">
+        <div class="chart-card-header">
+          <div class="chart-title-group">
+            <i data-lucide="brain-circuit" class="section-icon"></i>
+            <div>
+              <h3>Giải Thích Quyết Định AI (Explainable AI – SHAP Feature Impact)</h3>
+              <p>Phân tích tầm quan trọng của từng chỉ số sinh lý học đối với quyết định phân loại lo âu</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="shap-layout-grid">
+          <!-- SHAP Bar Chart -->
+          <div class="canvas-wrapper shap-chart-box">
+            <canvas id="shapChart"></canvas>
+          </div>
+          <!-- Clinical Storytelling Insights -->
+          <div class="shap-insights-list" id="shapInsightsList">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Personalized Sports Medicine Routine Deck -->
+      <div class="routine-section">
+        <div class="section-heading-row">
+          <div class="heading-left">
+            <i data-lucide="dumbbell" class="section-icon"></i>
+            <div>
+              <h3>Lộ Trình Bài Tập Y Học Thể Thao Được Cá Nhân Hóa (Routine Deck)</h3>
+              <p>Ghép nối tự động theo Content-Based Matching để điều hòa Cortisol và tái cân bằng hệ thần kinh</p>
+            </div>
+          </div>
+          <span class="routine-count-pill" id="routineCountBadge">4 Bài tập phù hợp</span>
+        </div>
+
+        <div class="routines-grid" id="routinesGrid">
+          <!-- Dynamically populated via JS -->
+        </div>
+      </div>
+
+      <!-- Recovery Trend Simulator -->
+      <div class="chart-card glass-panel">
+        <div class="chart-card-header">
+          <div class="chart-title-group">
+            <i data-lucide="trending-down" class="section-icon"></i>
+            <div>
+              <h3>Mô Phỏng Xu Hướng Hồi Phục Thần Kinh (7-Day Recovery Trajectory)</h3>
+              <p>Dự báo mức độ giảm điểm lo âu và hạ nhịp tim nghỉ nếu duy trì đúng lộ trình tập luyện khuyến nghị</p>
+            </div>
+          </div>
+        </div>
+        <div class="canvas-wrapper">
+          <canvas id="recoveryChart"></canvas>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <div class="footer-content">
+      <p>MindFit AI &copy; 2026 – Nền Tảng Y Tế Số & AI Nhận Diện Lo Âu Dựa Trên Tín Hiệu Wearables</p>
+      <p class="footer-sub">Mô hình: PyTorch Multi-Scale SE-ResNet1D &bull; SHAP Explainability &bull; Chuẩn dữ liệu WESAD/PMData</p>
+    </div>
+  </footer>
+
+  <script src="/static/js/app.js"></script>
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>

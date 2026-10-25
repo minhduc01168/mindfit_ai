@@ -1,0 +1,14 @@
+{
+  "sampling_rate_hz": 4.0,
+  "window_seconds": 60,
+  "seq_len": 240,
+  "channels": [
+    "BVP_PULSE",
+    "EDA_SKIN_CONDUCTANCE"
+  ],
+  "classes": [
+    "NORMAL",
+    "MILD ANXIETY",
+    "HIGH STRESS"
+  ]
+}

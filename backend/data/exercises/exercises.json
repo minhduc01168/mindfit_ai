@@ -1,0 +1,161 @@
+[
+  {
+    "id": "ex_001",
+    "name": "Thở Hộp 4-7-8 & Kéo Giãn Thần Kinh Phế Vị",
+    "name_en": "4-7-8 Box Breathing & Vagus Nerve Release",
+    "target_state": "HIGH STRESS",
+    "category": "Breathwork & Somatic",
+    "intensity": "Very Low",
+    "duration_min": 10,
+    "cortisol_impact": "Giảm nhanh (-32%)",
+    "nervous_system": "Kích hoạt đối giao cảm (PNS - Rest & Digest)",
+    "icon": "🫁",
+    "description": "Kỹ thuật thở y khoa điều hòa nhịp tim, giảm kích thích hạch hạnh nhân (amygdala) và hạ nhịp tim nghỉ ngay lập tức.",
+    "steps": [
+      "Ngồi thẳng lưng, thả lỏng vai và hàm mặt.",
+      "Hít sâu bằng mũi trong 4 giây.",
+      "Giữ hơi thở êm ái trong 7 giây.",
+      "Thở ra từ từ qua miệng với âm thanh nhẹ trong 8 giây.",
+      "Lặp lại 6 chu kỳ, sau đó xoay nhẹ cổ sang hai bên."
+    ],
+    "contraindications": "Không nín thở quá lâu nếu cảm thấy chóng mặt."
+  },
+  {
+    "id": "ex_002",
+    "name": "Yin Yoga Trị Liệu & Thư Giãn Sâu Thắt Lưng",
+    "name_en": "Restorative Yin Yoga & Lower Back Release",
+    "target_state": "HIGH STRESS",
+    "category": "Restorative Yoga",
+    "intensity": "Low",
+    "duration_min": 20,
+    "cortisol_impact": "Hạ mức độ căng cơ trục HPA",
+    "nervous_system": "Kích hoạt thụ thể giãn cơ Golgi",
+    "icon": "🧘",
+    "description": "Các tư thế giữ lâu thụ động giúp giải phóng axit lactic và giảm tích tụ hormone căng thẳng tại nhóm cơ lưng và hông.",
+    "steps": [
+      "Tư thế Em Bé (Child's Pose): Giữ trong 3 phút, hít thở bụng sâu.",
+      "Tư thế Con Bướm Nằm (Supta Baddha Konasana): Kê gối dưới lưng, giữ 4 phút.",
+      "Tư thế Gác Chân Lên Tường (Viparita Karani): Giúp dồn máu về tim êm dịu trong 5 phút."
+    ],
+    "contraindications": "Tránh các động tác gập sâu nếu có thoát vị đĩa đệm cấp tính."
+  },
+  {
+    "id": "ex_003",
+    "name": "Thả Lỏng Cơ Tiến Triển (PMR) & Thiền Định Body Scan",
+    "name_en": "Progressive Muscle Relaxation (PMR)",
+    "target_state": "HIGH STRESS",
+    "category": "Mindfulness & Somatic",
+    "intensity": "Very Low",
+    "duration_min": 15,
+    "cortisol_impact": "Cắt đứt chu kỳ căng thẳng thể chất",
+    "nervous_system": "Ức chế giao cảm quá mức (Sympathetic Dampening)",
+    "icon": "🌿",
+    "description": "Phương pháp Jacobson y khoa giúp ngắt kết nối phản xạ gồng cứng vô thức do lo âu cấp tính.",
+    "steps": [
+      "Nằm ngửa thoải mái, nhắm mắt.",
+      "Siết chặt nắm tay trong 5 giây, sau đó thả lỏng hoàn toàn trong 15 giây và cảm nhận sự ấm áp.",
+      "Lặp lại tuần tự với cẳng tay, vai, cơ mặt, bụng và bắp chân.",
+      "Kết thúc bằng 3 phút thở tự nhiên tĩnh lặng."
+    ],
+    "contraindications": "Không siết quá mạnh tại vùng khớp đang viêm đau."
+  },
+  {
+    "id": "ex_004",
+    "name": "Zone 2 Cardio: Đi Bộ Nhanh Ngoài Trời / Đạp Xe Êm Ái",
+    "name_en": "Zone 2 Low-Intensity Steady State (LISS)",
+    "target_state": "MILD ANXIETY",
+    "category": "Aerobic Cardio",
+    "intensity": "Moderate",
+    "duration_min": 30,
+    "cortisol_impact": "Giải phóng Endorphin & BDNF êm ái",
+    "nervous_system": "Tái cân bằng nhịp sinh học (Circadian Rhythm)",
+    "icon": "🚶‍♂️",
+    "description": "Vận động nhịp nhàng ở ngưỡng 60-70% nhịp tim tối đa giúp thanh lọc cortisol dư thừa mà không gây kiệt quệ tuyến thượng thận.",
+    "steps": [
+      "Khởi động xoay khớp nhẹ nhàng trong 3 phút.",
+      "Duy trì nhịp chân đều đặn, tốc độ sao cho vẫn có thể trò chuyện thành câu ngắn (Talk Test).",
+      "Hít thở đều 2 bước hít - 2 bước thở.",
+      "Giảm tốc độ dần trong 5 phút cuối và bổ sung 250ml nước."
+    ],
+    "contraindications": "Tránh chạy dốc cao nếu nhịp tim vượt ngưỡng Zone 2."
+  },
+  {
+    "id": "ex_005",
+    "name": "Vinyasa Flow Uyển Chuyển & Cân Bằng Cột Sống",
+    "name_en": "Dynamic Vinyasa Flow for Mental Clarity",
+    "target_state": "MILD ANXIETY",
+    "category": "Active Yoga",
+    "intensity": "Moderate",
+    "duration_min": 25,
+    "cortisol_impact": "Trung hòa căng thẳng thần kinh",
+    "nervous_system": "Gia tăng tuần hoàn máu não và dopamine",
+    "icon": "🌊",
+    "description": "Kết hợp chuyển động nhịp nhàng theo hơi thở giúp giải tỏa cảm giác bồn chồn, thiếu tập trung do lo âu nhẹ.",
+    "steps": [
+      "Chuỗi Chào Mặt Trời A (Surya Namaskar A): 3 vòng nhịp độ chậm.",
+      "Tư thế Chiến Binh 2 (Warrior II) mở rộng ngực và hông: Giữ 5 nhịp thở mỗi bên.",
+      "Tư thế Cây (Tree Pose) rèn luyện sự định tâm: Giữ 30 giây mỗi chân.",
+      "Hạ nhiệt ở tư thế Ngồi Vặn Mình (Ardha Matsyendrasana)."
+    ],
+    "contraindications": "Tránh giữ hơi thở khi vào thế khó."
+  },
+  {
+    "id": "ex_006",
+    "name": "Pilates Core & Giải Phóng Khớp Hông",
+    "name_en": "Mindful Pilates Core Stabilization",
+    "target_state": "MILD ANXIETY",
+    "category": "Pilates",
+    "intensity": "Moderate",
+    "duration_min": 20,
+    "cortisol_impact": "Tăng cường kết nối Thân - Tâm",
+    "nervous_system": "Tập trung điều phối thần kinh vận động",
+    "icon": "🤸‍♀️",
+    "description": "Tập trung kích hoạt nhóm cơ cốt lõi (Core) và xương chậu, giúp đưa tâm trí rời khỏi những suy nghĩ âu lo miên man (overthinking).",
+    "steps": [
+      "Động tác The Hundred: Kích hoạt nhịp thở sâu và cơ bụng.",
+      "Cây Cầu Nâng Mông (Bridge Pose) kết hợp siết cơ sàn chậu: 12 nhịp.",
+      "Động tác Dead Bug kiểm soát lưng áp sát sàn: 10 nhịp mỗi bên."
+    ],
+    "contraindications": "Tránh võng lưng khi thực hiện các bài gồng bụng."
+  },
+  {
+    "id": "ex_007",
+    "name": "HIIT Tabata Đốt Năng Lượng & Rèn Sức Bền",
+    "name_en": "High-Intensity Interval Training (HIIT Tabata)",
+    "target_state": "NORMAL",
+    "category": "High Intensity Athletic",
+    "intensity": "High",
+    "duration_min": 25,
+    "cortisol_impact": "Tối ưu hóa sức bền tim mạch khi thể trạng sung sức",
+    "nervous_system": "Kích thích Adrenaline & Tăng vọt VO2 Max",
+    "icon": "⚡",
+    "description": "Chỉ khuyến nghị khi cơ thể ở trạng thái hoàn toàn thư thái (NORMAL, HRV cao). Tăng cường sức khỏe cơ bắp và trao đổi chất.",
+    "steps": [
+      "Khởi động làm nóng toàn thân 5 phút.",
+      "Chuỗi 4 bài tập (Jumping Jacks, Burpees, Mountain Climbers, Squat Jumps).",
+      "Thực hiện: 20 giây dốc hết sức - 10 giây nghỉ. Lặp lại 8 hiệp.",
+      "Thả lỏng chạy bước nhỏ và ép dẻo 5 phút."
+    ],
+    "contraindications": "Tuyệt đối không tập khi đang ở trạng thái HIGH STRESS hoặc thiếu ngủ!"
+  },
+  {
+    "id": "ex_008",
+    "name": "Rèn Luyện Sức Mạnh Toàn Thân (Full Body Hypertrophy)",
+    "name_en": "Compound Strength & Resistance Training",
+    "target_state": "NORMAL",
+    "category": "Strength & Weightlifting",
+    "intensity": "High",
+    "duration_min": 45,
+    "cortisol_impact": "Kích thích Hormone Tăng trưởng (GH & Testosterone)",
+    "nervous_system": "Thần kinh hưng phấn, sẵn sàng thử thách",
+    "icon": "🏋️‍♂️",
+    "description": "Bài tập đa khớp phát triển sức mạnh thể chất tối đa, xây dựng mật độ xương và nâng cao chỉ số trao đổi chất cơ bản.",
+    "steps": [
+      "Squat tạ đòn / Dumbbell Goblet Squat: 4 hiệp x 8-10 lần.",
+      "Chống đẩy / Bench Press: 4 hiệp x 10 lần.",
+      "Kéo xà / Dumbbell Row: 4 hiệp x 8 lần.",
+      "Plank giữ vững: 3 hiệp x 45 giây."
+    ],
+    "contraindications": "Khởi động kỹ khớp vai và khớp gối trước khi tăng tạ."
+  }
+]
